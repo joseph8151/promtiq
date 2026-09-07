@@ -46,7 +46,7 @@ a {
   text-decoration: none;
 }
 
-ul, ol {
+ul, ol, dl, dd {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -289,6 +289,11 @@ textarea:focus-visible {
 
 .price-card-feature .btn-primary {
   width: 100%;
+}
+
+.btn-auto {
+  width: auto;
+  display: inline-flex;
 }
 
 /* ---------- Sections (shared) ---------- */
@@ -631,6 +636,499 @@ textarea {
   margin: 0 0 6px;
 }
 
+/* ---------- Service list (home) ---------- */
+
+.service-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto auto;
+  align-items: center;
+  gap: 28px;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.service-list a.service-row {
+  transition: opacity 0.2s ease;
+}
+
+.service-list a.service-row:hover {
+  opacity: 0.6;
+}
+
+.service-list li:last-child .service-row {
+  border-bottom: 1px solid var(--line);
+}
+
+.service-num {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--tiffany);
+}
+
+.service-name .service-cat {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  color: var(--mute);
+  margin-bottom: 8px;
+}
+
+.service-name h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.service-name p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--mute);
+}
+
+.service-price {
+  font-size: 14px;
+  color: var(--mute);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.service-explore {
+  font-size: 13.5px;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+/* ---------- Highlight sections (AI Concierge / Brand Report) ---------- */
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.highlight-copy .section-title {
+  margin-bottom: 24px;
+}
+
+.highlight-copy p {
+  color: var(--ink);
+  opacity: 0.78;
+  margin: 0 0 16px;
+}
+
+.tag-pill {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-top: 8px;
+}
+
+.highlight-panel {
+  border: 1px solid var(--line);
+  padding: 36px 32px;
+  background: #fff;
+}
+
+.highlight-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 0;
+  margin: 0 0 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.highlight-list li {
+  font-size: 14.5px;
+  width: 50%;
+  position: relative;
+  padding-left: 16px;
+}
+
+.highlight-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 1px;
+  background: var(--tiffany);
+}
+
+.highlight-pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  font-size: 14.5px;
+}
+
+.highlight-pricing div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.highlight-pricing dt {
+  color: var(--mute);
+}
+
+/* ---------- Brand Report grid ---------- */
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 40px;
+}
+
+.report-grid div {
+  background: #fff;
+  padding: 22px 16px;
+}
+
+.section-alt .report-grid div {
+  background: #fff;
+}
+
+.report-grid .report-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--tiffany);
+  margin-bottom: 8px;
+}
+
+.report-grid .report-label {
+  display: block;
+  font-size: 13.5px;
+}
+
+.report-grid .report-label-en {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+  margin-top: 2px;
+}
+
+.report-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+  font-size: 14.5px;
+  color: var(--mute);
+}
+
+.report-meta strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---------- Starting price table ---------- */
+
+.pricing-table {
+  border-top: 1px solid var(--line);
+}
+
+.pricing-row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pricing-row .pricing-cat {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--mute);
+}
+
+.pricing-row .pricing-name {
+  font-size: 16px;
+}
+
+.pricing-row .pricing-amount {
+  font-size: 15px;
+  color: var(--mute);
+  white-space: nowrap;
+}
+
+.pricing-footnote {
+  margin: 20px 0 0;
+  font-size: 13px;
+  color: var(--mute);
+}
+
+/* ---------- FAQ ---------- */
+
+.faq-list {
+  max-width: 720px;
+  border-top: 1px solid var(--line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.faq-question .faq-icon {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--tiffany);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.faq-item[data-open="true"] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease;
+}
+
+.faq-item[data-open="true"] .faq-answer {
+  max-height: 240px;
+}
+
+.faq-answer p {
+  margin: 0 0 24px;
+  color: var(--mute);
+  font-size: 14.5px;
+  max-width: 560px;
+}
+
+/* ---------- Closing CTA ---------- */
+
+.closing-cta {
+  text-align: center;
+}
+
+.closing-cta .section-title {
+  margin-bottom: 20px;
+}
+
+.closing-cta .section-desc {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Services detail page ---------- */
+
+.detail-section {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.detail-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.detail-head .service-cat {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  color: var(--mute);
+  margin-bottom: 16px;
+}
+
+.detail-head h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin-bottom: 16px;
+}
+
+.detail-price {
+  font-family: var(--font-display);
+  font-size: 30px;
+}
+
+.detail-price-unit {
+  font-size: 16px;
+}
+
+.detail-vat {
+  font-size: 12.5px;
+  color: var(--mute);
+  margin: 4px 0 0;
+}
+
+.detail-desc {
+  color: var(--mute);
+  margin: 0 0 24px;
+}
+
+.detail-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 24px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+
+.detail-list li {
+  font-size: 14.5px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.detail-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 1px;
+  background: var(--tiffany);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.chip {
+  font-size: 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 16px;
+  color: var(--mute);
+}
+
+.chip span {
+  color: var(--ink);
+}
+
+.sub-product {
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+  margin-top: 28px;
+}
+
+.sub-product h4 {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  margin: 0 0 4px;
+}
+
+.sub-product .sub-price {
+  font-size: 13.5px;
+  color: var(--mute);
+  margin: 0 0 14px;
+}
+
+.addon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.addon-card {
+  background: var(--paper);
+  padding: 36px 32px;
+}
+
+.addon-card h3 {
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+
+.addon-card .addon-price {
+  font-size: 14px;
+  color: var(--mute);
+  margin: 0 0 20px;
+}
+
+.addon-card .addon-copy {
+  font-size: 14px;
+  color: var(--mute);
+  margin: 0 0 18px;
+}
+
+.addon-card ul {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.addon-card li {
+  font-size: 14px;
+  padding: 5px 0;
+  position: relative;
+  padding-left: 16px;
+}
+
+.addon-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 6px;
+  height: 1px;
+  background: var(--tiffany);
+}
+
+.launch-groups {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.launch-groups h4 {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--mute);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.launch-groups li {
+  font-size: 14px;
+  padding: 5px 0;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 900px) {
@@ -644,6 +1142,28 @@ textarea {
 
   .price-card-feature {
     order: -1;
+  }
+
+  .highlight-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .report-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .detail-head {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .addon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .launch-groups {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -703,5 +1223,41 @@ textarea {
 
   .footer-meta {
     text-align: left;
+  }
+
+  .service-row {
+    grid-template-columns: 40px 1fr;
+    row-gap: 8px;
+  }
+
+  .service-price,
+  .service-explore {
+    grid-column: 2 / 3;
+    text-align: left;
+  }
+
+  .highlight-list li {
+    width: 100%;
+  }
+
+  .report-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-row {
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+  }
+
+  .pricing-row .pricing-cat {
+    order: -1;
+  }
+
+  .detail-list {
+    grid-template-columns: 1fr;
+  }
+
+  .launch-groups {
+    grid-template-columns: 1fr 1fr;
   }
 }

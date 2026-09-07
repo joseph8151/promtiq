@@ -1,17 +1,41 @@
 # Promtiq (프롬틱)
 
-공간이 아닌, 품격을 짓습니다 — 개인·소상공인·병원·학원·전문직을 위한 프리미엄 홈페이지 아틀리에.
+공간이 아닌, 품격을 짓습니다 — 브랜드와 디지털 자산을 설계하는 프리미엄 크리에이티브 스튜디오.
 
-정적 HTML/CSS/JS로 제작된 원페이지 사이트입니다.
+정적 HTML/CSS/JS로 제작된 사이트입니다. 홈(`index.html`)은 브랜드 철학과 6개 서비스
+카테고리를 요약해 보여주고, `services.html`은 각 서비스의 상세 구성과 별도 상품
+(Naming / Copy / Proposal / Launch)까지 전부 담은 상세 페이지입니다.
 
 ```
 .
-├── index.html
+├── index.html       # 홈 — Hero, Philosophy, Services 요약, AI Concierge, Brand Report, Process, Starting Price, FAQ, Contact
+├── services.html    # 서비스 상세 — 6개 카테고리 풀 구성 + 별도 서비스
 ├── css/style.css
 ├── js/main.js
 ├── wrangler.jsonc
 └── README.md
 ```
+
+## 서비스 구조
+
+| 코드 | 서비스 | 시작가 |
+|---|---|---|
+| WEB | Website Atelier | 2,000,000원~ (Signature/Maison/Atelier 3단) |
+| BRAND | Brand Identity | 690,000원~ |
+| PROFILE | Company Profile | 790,000원~ (Medical/Academy/Professional/Corporate) |
+| CONTENT | Content Studio | 월 490,000원~ (Social/Journal) |
+| AI | AI Concierge | 990,000원~ |
+| CONSULTING | Brand Report | 290,000원 |
+
+별도 서비스(Naming/Copy/Proposal/Launch)는 `services.html`의 `#addons` 섹션에만 노출합니다.
+
+## 카피 원칙 (필독)
+
+- AI Concierge를 제외한 모든 서비스는 "AI가 만들어드립니다" 식으로 표현하지 않습니다.
+  Brand Strategy / Creative Direction / Editorial Design 같은 표현을 우선합니다.
+- AI 관련 표현이 필요할 때는 작게 "Human directed. AI enhanced." 정도만 사용합니다.
+- 병원·학원 관련 문구에는 효능 보장, 성적 보장 표현을 쓰지 않습니다.
+- 문장은 짧게. 설명보다 먼저 신뢰가 보이도록 씁니다.
 
 ## 로컬 확인
 
@@ -61,5 +85,8 @@ Pages/Workers 앱에 이 저장소 접근 권한을 추가해야 합니다.
 
 ## 유지 관리 시 유의사항
 
-- 가격·구성 문구 변경 시 `index.html`의 `#services` 섹션과 문의 폼 `select` 옵션을 함께 수정
+- 가격·구성 문구 변경 시 `index.html`의 `#services`/`#pricing` 섹션, `services.html`의
+  해당 `detail-section`, 문의 폼 `select` 옵션 세 곳을 함께 수정
 - 색상·폰트 등 디자인 토큰은 `css/style.css` 최상단 `:root` 변수에서 일괄 관리
+- `services.html`은 `index.html`과 헤더·푸터·CSS를 공유하므로, 내비게이션 문구를 바꿀 때
+  두 파일 모두 수정

@@ -18,6 +18,17 @@
     });
   }
 
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var question = item.querySelector('.faq-question');
+    if (!question) return;
+
+    question.addEventListener('click', function () {
+      var isOpen = item.getAttribute('data-open') === 'true';
+      item.setAttribute('data-open', isOpen ? 'false' : 'true');
+      question.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    });
+  });
+
   var form = document.querySelector('.contact-form');
   var note = document.getElementById('formNote');
 
