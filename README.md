@@ -1,45 +1,69 @@
 # Promtiq (프롬틱)
 
-공간이 아닌, 품격을 짓습니다 — 브랜드와 디지털 자산을 설계하는 프리미엄 크리에이티브 스튜디오.
+Documents that move business — 기업이 선택받아야 하는 순간에 필요한 제안서, IR 자료,
+사업계획서, 기업 문서를 설계하는 비즈니스 다큐먼트 스튜디오.
 
-정적 HTML/CSS/JS로 제작된 사이트입니다. 홈(`index.html`)은 브랜드 철학과 6개 서비스
-카테고리를 요약해 보여주고, `services.html`은 각 서비스의 상세 구성과 별도 상품
-(Naming / Copy / Proposal / Launch)까지 전부 담은 상세 페이지입니다.
+정적 HTML/CSS/JS 사이트입니다. 빌드 과정이 없고, 파일을 그대로 서빙합니다.
 
 ```
 .
-├── index.html       # 홈 — Hero, Philosophy, Services 요약, AI Concierge, Brand Report, Process, Starting Price, FAQ, Contact
-├── services.html    # 서비스 상세 — 6개 카테고리 풀 구성 + 별도 서비스
+├── index.html       # 홈 — Hero, Message, Services 요약(6), Flagship, BID Flow, Audience, Why, Process, Urgent, Capabilities, Insights teaser, Contact CTA
+├── services.html    # 서비스 상세 — 6개 카테고리(100개 세부 서비스) + 기업 인접 서비스(15개)
+├── insights.html    # 콘텐츠 허브 — 주제 10개 티저 (본문 미작성, 추후 채움)
+├── contact.html     # Project Inquiry — 상세 문의 폼(파일 첨부 포함)
 ├── css/style.css
 ├── js/main.js
 ├── wrangler.jsonc
 └── README.md
 ```
 
-## 서비스 구조
+## 브랜드 포지셔닝
 
-| 코드 | 서비스 | 시작가 |
-|---|---|---|
-| WEB | Website Atelier | 2,000,000원~ (Signature/Maison/Atelier 3단) |
-| BRAND | Brand Identity | 690,000원~ |
-| PROFILE | Company Profile | 790,000원~ (Medical/Academy/Professional/Corporate) |
-| CONTENT | Content Studio | 월 490,000원~ (Social/Journal) |
-| AI | AI Concierge | 990,000원~ |
-| CONSULTING | Brand Report | 290,000원 |
+"프리미엄 홈페이지 제작 아틀리에"에서 **"기업의 중요한 문서와 정보를 설계하는 B2B
+전문 스튜디오"**로 전면 재정의했습니다. 경쟁 상대는 동네 PPT 업체가 아니라 전략
+컨설팅·기업 브랜딩 스튜디오입니다. AI는 상품으로 팔지 않습니다 — 파는 것은
+Strategy / Structure / Writing / Design / Business Outcome 입니다.
 
-별도 서비스(Naming/Copy/Proposal/Launch)는 `services.html`의 `#addons` 섹션에만 노출합니다.
+## 디자인 시스템
 
-## 카피 원칙 (필독)
+```css
+--ink: #0B1220;      /* 본문/헤더/푸터 배경 */
+--ivory: #F4F1EA;    /* 메인 배경 */
+--bronze: #B59A6A;   /* 숫자·라인·hover·라벨 전용. 버튼 전체 채색 금지 */
+--charcoal: #252A31; /* 다크 밴드 배경 */
+--stone: #8A8E93;    /* 보조 텍스트 */
+--white: #FCFCFA;    /* 카드/인풋 배경 */
+```
 
-- AI Concierge를 제외한 모든 서비스는 "AI가 만들어드립니다" 식으로 표현하지 않습니다.
-  Brand Strategy / Creative Direction / Editorial Design 같은 표현을 우선합니다.
-- AI 관련 표현이 필요할 때는 작게 "Human directed. AI enhanced." 정도만 사용합니다.
-- 병원·학원 관련 문구에는 효능 보장, 성적 보장 표현을 쓰지 않습니다.
-- 문장은 짧게. 설명보다 먼저 신뢰가 보이도록 씁니다.
+- 영문 디스플레이: Instrument Serif (Hero, 카테고리 서브헤드)
+- 한글/본문: Pretendard
+- Bronze는 절대 버튼 전체 색이나 금색 그라디언트로 쓰지 않습니다.
+
+## 서비스 구조 (6 카테고리 · 100개)
+
+| 코드 | 카테고리 | 세부 서비스 수 | 앵커 |
+|---|---|---|---|
+| 01 | Bid & Proposal | 20 | `services.html#bid` |
+| 02 | Presentation | 12 | `services.html#presentation` |
+| 03 | IR & Business | 12 | `services.html#ir` |
+| 04 | Government & Funding | 10 | `services.html#government` |
+| 05 | Corporate Documents | 16 | `services.html#corporate` |
+| 06 | Global Business | 15 | `services.html#global` |
+| — | 기업 인접 서비스(Additional) | 15 | `services.html#additional` |
+
+Flagship 8종(공공입찰/기업RFP/B2B영업/IR/사업계획서/회사소개서/PT/해외제안)은
+`index.html`의 `#flagship`에서 "From ₩N" 시작가로만 노출합니다.
+
+## 카피·숫자 원칙 (필독)
+
+- 선정 보장, 합격 보장, 확인되지 않은 수주율·실적 수치(예: "수주율 95%")는 **절대 사용 금지**.
+- 가상 고객사명, 가짜 매출/수주 사례를 만들지 않습니다. 실제 사례가 없으면
+  "Selected Capabilities"(프로젝트 **영역**)로만 표현합니다 — `index.html#capabilities` 참고.
+- "무료상담", "지금 신청하세요", "특가" 같은 저가형 CTA 문구 금지.
+  대신 Project Inquiry / Discuss a Project / 제안서 제작 문의 / RFP 검토 문의 사용.
+- AI를 전면에 내세우지 않습니다. 꼭 필요하면 아주 작게 "Human directed. AI enhanced."만 사용.
 
 ## 로컬 확인
-
-별도 빌드 과정 없이 정적 파일만으로 동작합니다.
 
 ```bash
 npx serve .
@@ -63,30 +87,30 @@ Cloudflare 대시보드에서 **Workers & Pages → Create → Connect to Git**�
 script or to assets directory" 에러로 빌드가 실패합니다.
 
 1. Cloudflare 대시보드 → **Workers & Pages → Create → Connect to Git**
-2. 이 저장소(`joseph8151/promtiq`) 선택, 프로덕션 브랜치 지정
+2. 이 저장소(`joseph8151/promtiq`) 선택, 프로덕션 브랜치 지정 (`main`)
 3. 빌드 설정은 기본값 그대로 두어도 됩니다 (`wrangler.jsonc`가 자산 위치를 지정)
 4. 배포 후 좌측 **Domains** 또는 **Custom domains**에서 실제 도메인 연결
-
-만약 Cloudflare 계정의 GitHub App 저장소 접근 권한이 없어 "Cloning repository..." 단계에서
-실패한다면, GitHub → **Settings → Applications → Installed GitHub Apps**에서 Cloudflare
-Pages/Workers 앱에 이 저장소 접근 권한을 추가해야 합니다.
+5. 배포 후에도 화면이 안 바뀌면 시크릿 창 또는 `?v=2` 같은 캐시 무효화 쿼리로 재확인
 
 ## Formspree 연결
 
 1. [formspree.io](https://formspree.io)에서 새 폼 생성 후 발급되는 Form ID 확인
-2. `index.html`의 문의 폼 `action` 값을 실제 폼 주소로 교체
+2. `contact.html`의 문의 폼 `action` 값을 실제 폼 주소로 교체
 
    ```html
-   <form class="contact-form" action="https://formspree.io/f/실제_폼_ID" method="POST">
+   <form class="contact-form" action="https://formspree.io/f/실제_폼_ID" method="POST" enctype="multipart/form-data">
    ```
 
 3. Formspree 대시보드 → **Settings → Domains**에 배포 도메인 등록(스팸 방지)
-4. 필요 시 **Settings → Notifications**에서 알림 받을 이메일 확인
+4. 파일 첨부 필드(`attachment`)를 받으려면 Formspree 요금제가 파일 업로드를
+   지원하는지 확인 (무료 플랜은 용량 제한이 있습니다)
 
 ## 유지 관리 시 유의사항
 
-- 가격·구성 문구 변경 시 `index.html`의 `#services`/`#pricing` 섹션, `services.html`의
-  해당 `detail-section`, 문의 폼 `select` 옵션 세 곳을 함께 수정
+- 서비스 품목/가격 변경 시 `index.html`(`#services`, `#flagship`)과 `services.html`의
+  해당 `category-section`, `contact.html`의 `project_type` select 옵션을 함께 수정
 - 색상·폰트 등 디자인 토큰은 `css/style.css` 최상단 `:root` 변수에서 일괄 관리
-- `services.html`은 `index.html`과 헤더·푸터·CSS를 공유하므로, 내비게이션 문구를 바꿀 때
-  두 파일 모두 수정
+- 4개 페이지(`index`/`services`/`insights`/`contact`)가 헤더·푸터·CSS·JS를 공유하므로,
+  내비게이션 문구를 바꿀 때 네 파일 모두 수정
+- 모바일에서 `services.html`의 긴 서비스 목록은 아코디언(`.accordion-toggle`)으로
+  접혀 있습니다. 항목을 추가/삭제하면 버튼의 `data-count`도 함께 갱신하세요
