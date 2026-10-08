@@ -18,7 +18,7 @@
     });
   }
 
-  // Sticky header shrinks after scrolling past the hero edge.
+  // Sticky header gains a background once the page scrolls past the hero edge.
   var header = document.getElementById('siteHeader');
   if (header) {
     var onScroll = function () {
@@ -28,7 +28,7 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  // Subtle reveal-on-scroll for elements marked .reveal.
+  // Subtle reveal-on-scroll for elements marked .reveal (also drives .line-reveal).
   var revealEls = document.querySelectorAll('.reveal');
   if (revealEls.length) {
     if ('IntersectionObserver' in window) {
@@ -53,47 +53,18 @@
     }
   }
 
-  // Mobile accordion for long service lists.
-  document.querySelectorAll('.accordion-toggle').forEach(function (btn) {
-    var wrap = btn.previousElementSibling;
-    var label = btn.querySelector('.accordion-label');
-    if (!wrap || !label) return;
-
-    btn.setAttribute('aria-expanded', 'false');
-
-    btn.addEventListener('click', function () {
-      var collapsed = wrap.classList.toggle('is-collapsed');
-      btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-      var defaultLabel = btn.getAttribute('data-label') || '전체 서비스 보기';
-      var count = btn.getAttribute('data-count') || '';
-      label.textContent = collapsed ? defaultLabel + ' (' + count + ')' : '접기';
+  // Service rows preselect the matching option in the contact form's service select.
+  var serviceSelect = document.getElementById('service');
+  if (serviceSelect) {
+    document.querySelectorAll('[data-service]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var value = el.getAttribute('data-service');
+        var option = serviceSelect.querySelector('option[value="' + value + '"]');
+        if (option) {
+          serviceSelect.value = value;
+        }
+      });
     });
-  });
-
-  // Prefill the project-type select and urgent note on the contact page.
-  var typeSelect = document.getElementById('project-type');
-  if (typeSelect) {
-    var params = new URLSearchParams(window.location.search);
-    var typeParam = params.get('type');
-    var typeMap = {
-      bid: 'public-bid',
-      presentation: 'presentation',
-      ir: 'ir',
-      government: 'government',
-      corporate: 'profile',
-      global: 'global-proposal'
-    };
-
-    if (typeParam && typeMap[typeParam]) {
-      typeSelect.value = typeMap[typeParam];
-    }
-
-    if (typeParam === 'urgent') {
-      var messageField = document.getElementById('message');
-      if (messageField && !messageField.value) {
-        messageField.value = '[긴급 프로젝트] ';
-      }
-    }
   }
 
   var form = document.querySelector('.contact-form');
