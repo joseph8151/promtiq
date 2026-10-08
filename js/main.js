@@ -53,18 +53,41 @@
     }
   }
 
-  // Service rows preselect the matching option in the contact form's service select.
+  // Mobile accordion for long service lists.
+  document.querySelectorAll('.accordion-toggle').forEach(function (btn) {
+    var wrap = btn.previousElementSibling;
+    var label = btn.querySelector('.accordion-label');
+    if (!wrap || !label) return;
+
+    btn.setAttribute('aria-expanded', 'false');
+
+    btn.addEventListener('click', function () {
+      var collapsed = wrap.classList.toggle('is-collapsed');
+      btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      var defaultLabel = btn.getAttribute('data-label') || '전체 서비스 보기';
+      var count = btn.getAttribute('data-count') || '';
+      label.textContent = collapsed ? defaultLabel + ' (' + count + ')' : '접기';
+    });
+  });
+
+  // Prefill the service select and urgent note on the contact page from the query string.
   var serviceSelect = document.getElementById('service');
   if (serviceSelect) {
-    document.querySelectorAll('[data-service]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        var value = el.getAttribute('data-service');
-        var option = serviceSelect.querySelector('option[value="' + value + '"]');
-        if (option) {
-          serviceSelect.value = value;
-        }
-      });
-    });
+    var params = new URLSearchParams(window.location.search);
+    var serviceParam = params.get('service');
+    var fallbackMap = { proposal: 'b2b', corporate: 'corporate' };
+    var targetValue = serviceParam && fallbackMap[serviceParam] ? fallbackMap[serviceParam] : serviceParam;
+
+    if (targetValue && serviceSelect.querySelector('option[value="' + targetValue + '"]')) {
+      serviceSelect.value = targetValue;
+    }
+
+    if (params.get('urgent') === '1') {
+      var messageField = document.getElementById('message');
+      if (messageField && !messageField.value) {
+        messageField.value = '[긴급 제작 문의] ';
+      }
+    }
   }
 
   var form = document.querySelector('.contact-form');
