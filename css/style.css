@@ -135,15 +135,14 @@ textarea:focus-visible {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: transparent;
-  border-bottom: 1px solid transparent;
+  background: rgba(251, 249, 244, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
   transition: background 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
 }
 
 .site-header.is-scrolled {
-  background: rgba(251, 249, 244, 0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(251, 249, 244, 0.96);
 }
 
 .header-inner {
@@ -177,6 +176,8 @@ textarea:focus-visible {
   position: relative;
   padding: 4px 0;
   color: var(--charcoal);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .site-nav a:not(.nav-cta)::after {
@@ -1390,12 +1391,6 @@ textarea {
   .insight-grid-full {
     grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 720px) {
-  .wrap {
-    padding: 0 22px;
-  }
 
   .site-nav {
     position: fixed;
@@ -1435,6 +1430,12 @@ textarea {
   .site-header.is-scrolled .header-inner,
   .header-inner {
     height: 72px;
+  }
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: 0 22px;
   }
 
   .hero {
