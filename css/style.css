@@ -198,7 +198,7 @@ textarea:focus-visible {
   transform: scaleX(1);
 }
 
-.nav-cta {
+a.nav-cta {
   display: inline-flex;
   align-items: center;
   gap: 6px;
