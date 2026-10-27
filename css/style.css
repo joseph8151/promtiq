@@ -926,11 +926,11 @@ textarea {
   margin-bottom: 32px;
 }
 
-/* ---------- Category grid (home: 4 big categories) ---------- */
+/* ---------- Category grid (home: 5 big categories) ---------- */
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
@@ -942,6 +942,29 @@ textarea {
   color: var(--charcoal);
   display: block;
   transition: background 0.2s ease;
+}
+
+.category-card-wide {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  column-gap: 32px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+}
+
+.category-card-wide h3 {
+  flex: 0 0 auto;
+  min-width: 160px;
+}
+
+.category-card-wide p {
+  flex: 1 1 320px;
+  margin: 0;
+}
+
+.category-card-wide .category-link {
+  flex: 0 0 auto;
 }
 
 .category-card:hover {
@@ -1647,6 +1670,11 @@ textarea {
 
   .category-grid {
     grid-template-columns: 1fr;
+  }
+
+  .category-card-wide {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .flagship-grid {
