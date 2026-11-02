@@ -19,6 +19,7 @@
 
   --font-serif: "Noto Serif KR", serif;
   --font-body: "Pretendard", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+  --font-display: "Playfair Display", "Noto Serif KR", serif;
 
   --wrap: 1140px;
 }
@@ -245,10 +246,15 @@ a.nav-cta {
   border-radius: 6px;
   font-size: 15px;
   font-weight: 600;
+  letter-spacing: 0.01em;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn-primary {
@@ -297,6 +303,35 @@ a.nav-cta {
 .hero {
   background: var(--ivory);
   padding: 168px 0 128px;
+  position: relative;
+}
+
+.hero-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--khaki);
+  opacity: 0.55;
+}
+
+.hero-corner.tl {
+  top: 40px;
+  left: 28px;
+  border-top: 1px solid var(--khaki);
+  border-left: 1px solid var(--khaki);
+}
+
+.hero-corner.br {
+  bottom: 40px;
+  right: 28px;
+  border-bottom: 1px solid var(--khaki);
+  border-right: 1px solid var(--khaki);
+}
+
+@media (max-width: 720px) {
+  .hero-corner {
+    display: none;
+  }
 }
 
 .hero-inner {
@@ -341,6 +376,18 @@ a.nav-cta {
   color: var(--khaki);
   font-weight: 600;
   margin: 0 0 20px;
+  letter-spacing: 0.02em;
+}
+
+.section-label::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.65;
+  margin-right: 8px;
+  vertical-align: middle;
 }
 
 .section-title {
@@ -587,7 +634,9 @@ a.nav-cta {
 
 .diagnostic-num {
   display: block;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
   font-size: 28px;
   color: var(--khaki);
   margin-bottom: 12px;
@@ -653,7 +702,9 @@ a.nav-cta {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
   font-size: 13px;
   color: var(--olive);
   background: var(--pistachio);
@@ -699,8 +750,12 @@ a.nav-cta {
 }
 
 .pricing-amount {
-  font-size: 13.5px;
-  color: var(--gray);
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--khaki);
   letter-spacing: 0.01em;
 }
 
@@ -973,8 +1028,10 @@ textarea {
 
 .category-num {
   display: block;
-  font-family: var(--font-serif);
-  font-size: 24px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 26px;
   color: var(--khaki);
   margin-bottom: 20px;
 }
@@ -1024,8 +1081,10 @@ textarea {
 
 .flagship-num {
   display: block;
-  font-family: var(--font-serif);
-  font-size: 20px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 21px;
   color: var(--khaki);
   margin-bottom: 16px;
 }
@@ -1037,8 +1096,11 @@ textarea {
 }
 
 .flagship-price {
-  font-size: 13.5px;
-  color: var(--gray);
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--khaki);
   border-top: 1px solid var(--line);
   padding-top: 14px;
 }
