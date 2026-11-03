@@ -309,7 +309,7 @@ a.nav-cta {
   overflow: hidden;
 }
 
-.hero-mark {
+.corner-wm {
   position: absolute;
   top: 50%;
   right: -2%;
@@ -325,36 +325,50 @@ a.nav-cta {
   z-index: 0;
 }
 
+.corner-wm.on-dark {
+  color: rgba(200, 214, 184, 0.09);
+}
+
+.corner-wm.sm {
+  font-size: 22vw;
+}
+
 @media (max-width: 960px) {
-  .hero-mark {
+  .corner-wm {
     display: none;
   }
 }
 
-.hero-corner {
+.corner-mark {
   position: absolute;
   width: 20px;
   height: 20px;
   border-color: var(--khaki);
   opacity: 0.55;
+  z-index: 1;
 }
 
-.hero-corner.tl {
+.corner-mark.tl {
   top: 40px;
   left: 28px;
   border-top: 1px solid var(--khaki);
   border-left: 1px solid var(--khaki);
 }
 
-.hero-corner.br {
+.corner-mark.br {
   bottom: 40px;
   right: 28px;
   border-bottom: 1px solid var(--khaki);
   border-right: 1px solid var(--khaki);
 }
 
+.corner-mark.on-dark {
+  border-color: var(--pistachio);
+  opacity: 0.6;
+}
+
 @media (max-width: 720px) {
-  .hero-corner {
+  .corner-mark {
     display: none;
   }
 }
@@ -558,6 +572,14 @@ a.nav-cta {
 .band-olive {
   background: var(--olive);
   color: var(--ivory);
+  position: relative;
+  overflow: hidden;
+}
+
+.band-olive > .wrap,
+.contact-band > .wrap {
+  position: relative;
+  z-index: 1;
 }
 
 .ai-layout {
@@ -795,6 +817,8 @@ a.nav-cta {
 .contact-band {
   background: var(--olive);
   color: var(--ivory);
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-form {
@@ -1019,11 +1043,12 @@ textarea {
 }
 
 .category-card {
+  position: relative;
   background: var(--off-white);
   padding: 40px 30px;
   color: var(--charcoal);
   display: block;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
 }
 
 .category-card-wide {
@@ -1051,6 +1076,9 @@ textarea {
 
 .category-card:hover {
   background: var(--pistachio-light);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 36px -22px rgba(41, 44, 40, 0.28);
+  z-index: 2;
 }
 
 .category-num {
@@ -1095,15 +1123,19 @@ textarea {
 }
 
 .flagship-card {
+  position: relative;
   background: var(--ivory);
   padding: 32px 26px;
   display: block;
   color: var(--charcoal);
-  transition: opacity 0.2s ease;
+  transition: background 0.2s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
 }
 
 .flagship-card:hover {
-  opacity: 0.6;
+  background: var(--off-white);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 36px -22px rgba(41, 44, 40, 0.28);
+  z-index: 2;
 }
 
 .flagship-num {
@@ -1179,6 +1211,7 @@ textarea {
   border-radius: 12px;
   overflow: hidden;
   aspect-ratio: 4 / 5;
+  box-shadow: 0 24px 48px -24px rgba(41, 44, 40, 0.28);
 }
 
 .split-media-figure img {
@@ -1187,7 +1220,12 @@ textarea {
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
-  filter: grayscale(18%) sepia(12%) saturate(82%) contrast(1.03) brightness(0.98);
+  filter: grayscale(16%) sepia(14%) saturate(84%) contrast(1.05) brightness(0.98);
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.split-media-figure:hover img {
+  transform: scale(1.045);
 }
 
 .differentiator-grid.is-stacked {
@@ -1243,6 +1281,7 @@ textarea {
   border-radius: 10px;
   overflow: hidden;
   aspect-ratio: 3 / 4;
+  box-shadow: 0 20px 40px -22px rgba(41, 44, 40, 0.3);
 }
 
 .team-card-figure img {
@@ -1251,7 +1290,12 @@ textarea {
   height: 100%;
   object-fit: cover;
   object-position: center 18%;
-  filter: grayscale(18%) sepia(12%) saturate(82%) contrast(1.03) brightness(0.98);
+  filter: grayscale(16%) sepia(14%) saturate(84%) contrast(1.05) brightness(0.98);
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.team-card:hover .team-card-figure img {
+  transform: scale(1.05);
 }
 
 .team-card .team-role {
@@ -1532,8 +1576,17 @@ textarea {
 }
 
 .insight-card {
+  position: relative;
   background: var(--off-white);
   padding: 36px 32px;
+  transition: background 0.2s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.insight-card:hover {
+  background: var(--ivory);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 36px -22px rgba(41, 44, 40, 0.22);
+  z-index: 2;
 }
 
 .insight-tag {
