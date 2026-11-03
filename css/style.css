@@ -261,11 +261,13 @@ a.nav-cta {
   background: var(--olive);
   color: var(--ivory);
   border-color: var(--olive);
+  box-shadow: 0 1px 2px rgba(41, 44, 40, 0.08);
 }
 
 .btn-primary:hover {
   background: var(--khaki);
   border-color: var(--khaki);
+  box-shadow: 0 8px 20px rgba(41, 44, 40, 0.18);
 }
 
 .btn-secondary {
@@ -301,9 +303,32 @@ a.nav-cta {
 /* ---------- Hero ---------- */
 
 .hero {
-  background: var(--ivory);
+  background: radial-gradient(1100px 650px at 88% 18%, var(--pistachio-light) 0%, var(--ivory) 55%);
   padding: 168px 0 128px;
   position: relative;
+  overflow: hidden;
+}
+
+.hero-mark {
+  position: absolute;
+  top: 50%;
+  right: -2%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 32vw;
+  line-height: 1;
+  color: rgba(102, 112, 91, 0.07);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+@media (max-width: 960px) {
+  .hero-mark {
+    display: none;
+  }
 }
 
 .hero-corner {
@@ -336,6 +361,8 @@ a.nav-cta {
 
 .hero-inner {
   max-width: 760px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title {
