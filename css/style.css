@@ -1521,6 +1521,70 @@ textarea {
   max-width: 520px;
 }
 
+/* ---------- Document refinement page extras ---------- */
+
+.differentiator-grid.is-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#compare .section-label {
+  color: var(--pistachio);
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 8px;
+}
+
+.compare-col .compare-label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--pistachio);
+  margin-bottom: 16px;
+}
+
+.compare-col.is-after .compare-label {
+  color: var(--ivory);
+}
+
+.compare-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compare-col li {
+  border-top: 1px solid var(--line-on-dark);
+  padding: 14px 0;
+  font-size: 14.5px;
+  color: var(--ivory);
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.compare-col li:last-child {
+  border-bottom: 1px solid var(--line-on-dark);
+}
+
+.refine-doc-group {
+  margin-bottom: 36px;
+}
+
+.refine-doc-group:last-child {
+  margin-bottom: 0;
+}
+
+.refine-doc-group h3 {
+  font-size: 14px;
+  color: var(--khaki);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
 /* ---------- Mobile accordion (long service lists) ---------- */
 
 .accordion-toggle {
@@ -1686,7 +1750,8 @@ textarea {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .differentiator-grid {
+  .differentiator-grid,
+  .differentiator-grid.is-4 {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px 24px;
   }
@@ -1713,6 +1778,15 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .site-header.is-scrolled .header-inner,
+  .header-inner {
+    height: 72px;
+  }
+}
+
+/* Nav collapses to the mobile menu earlier than the layout breakpoint above,
+   since 9 nav items + logo + CTA get cramped well before 960px. */
+@media (max-width: 1180px) {
   .site-nav {
     position: fixed;
     z-index: 99;
@@ -1746,11 +1820,6 @@ textarea {
 
   .nav-toggle {
     display: flex;
-  }
-
-  .site-header.is-scrolled .header-inner,
-  .header-inner {
-    height: 72px;
   }
 }
 
@@ -1823,12 +1892,18 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .differentiator-grid {
+  .differentiator-grid,
+  .differentiator-grid.is-4 {
     grid-template-columns: 1fr;
   }
 
   .audience-grid {
     grid-template-columns: 1fr;
+  }
+
+  .compare-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .team-grid {
